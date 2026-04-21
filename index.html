@@ -15,16 +15,15 @@
     <!-- ========================= -->
     <!-- Task 1: Responsive Navbar -->
     <!-- ========================= -->
-    <!-- This navbar uses Bootstrap classes and becomes a hamburger menu on smaller screens -->
+    <!-- Responsive navbar using Bootstrap (collapses into hamburger menu) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
 
-            <!-- Website Brand -->
+            <!-- Brand -->
             <a class="navbar-brand" href="#home">Frontend Assessment</a>
 
-            <!-- Hamburger Button (visible on small screens) -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -32,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link active" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -42,6 +41,7 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -54,7 +54,6 @@
     <!-- ============================== -->
     <!-- Task 2: Responsive Card Grid -->
     <!-- ============================== -->
-    <!-- This section displays three responsive Bootstrap cards below the navbar -->
     <section class="container mt-5" id="about">
         <h2 class="text-center mb-4">Our Features</h2>
 
@@ -63,8 +62,8 @@
             <!-- Card 1 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card1.png" class="card-img-top" style="height: 250px; object-fit: cover;"
-                        alt="Responsive Design">
+                    <img src="images/card1.png" class="card-img-top"
+                        style="height: 250px; object-fit: cover;" alt="Responsive Design">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Responsive Design</h5>
                         <p class="card-text">
@@ -78,12 +77,12 @@
             <!-- Card 2 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card2.png" class="card-img-top" style="height: 250px; object-fit: cover;"
-                        alt="Modern Components">
+                    <img src="images/card2.png" class="card-img-top"
+                        style="height: 250px; object-fit: cover;" alt="Modern Components">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Modern Components</h5>
                         <p class="card-text">
-                            Use Bootstrap cards, forms, modals, and utility classes to create clean and user-friendly interfaces.
+                            Use Bootstrap cards, forms, modals, and utilities to create clean interfaces.
                         </p>
                         <a href="#" class="btn btn-primary mt-auto">Explore</a>
                     </div>
@@ -93,12 +92,12 @@
             <!-- Card 3 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card3.png" class="card-img-top" style="height: 250px; object-fit: cover;"
-                        alt="Easy Customisation">
+                    <img src="images/card3.png" class="card-img-top"
+                        style="height: 250px; object-fit: cover;" alt="Easy Customisation">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Easy Customisation</h5>
                         <p class="card-text">
-                            Bootstrap utilities help improve spacing, alignment, and presentation without using custom CSS.
+                            Improve layout, spacing, and alignment using Bootstrap utilities without custom CSS.
                         </p>
                         <a href="#" class="btn btn-primary mt-auto">Get Started</a>
                     </div>
@@ -108,7 +107,44 @@
         </div>
     </section>
 
-    <!-- Bootstrap JS (required for navbar toggle) -->
+    <!-- ===================== -->
+    <!-- Task 3: Contact Form -->
+    <!-- ===================== -->
+    <section class="container mt-5 mb-5" id="contact">
+        <h2 class="text-center mb-4">Contact Us</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <form>
+                    <!-- Name -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" placeholder="Name" required>
+                        <label for="name">Name</label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        <label for="email">Email</label>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" placeholder="Message"
+                            style="height: 150px" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
