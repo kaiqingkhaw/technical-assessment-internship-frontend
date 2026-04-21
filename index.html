@@ -15,7 +15,6 @@
     <!-- ========================= -->
     <!-- Task 1: Responsive Navbar -->
     <!-- ========================= -->
-    <!-- Responsive navbar using Bootstrap (collapses into hamburger menu) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
 
@@ -23,7 +22,8 @@
             <a class="navbar-brand" href="#home">Frontend Assessment</a>
 
             <!-- Hamburger Menu Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -46,10 +46,10 @@
     </nav>
 
     <!-- Home Section -->
-    <div class="container mt-5" id="home">
+    <section class="container mt-5" id="home">
         <h1 class="text-center">Welcome to the Frontend Assessment</h1>
         <p class="text-center text-muted">A responsive Bootstrap page for the internship assessment.</p>
-    </div>
+    </section>
 
     <!-- ============================== -->
     <!-- Task 2: Responsive Card Grid -->
@@ -62,8 +62,8 @@
             <!-- Card 1 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card1.png" class="card-img-top"
-                        style="height: 250px; object-fit: cover;" alt="Responsive Design">
+                    <img src="images/card1.png" class="card-img-top" style="height: 250px; object-fit: cover;"
+                        alt="Responsive Design">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Responsive Design</h5>
                         <p class="card-text">
@@ -77,8 +77,8 @@
             <!-- Card 2 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card2.png" class="card-img-top"
-                        style="height: 250px; object-fit: cover;" alt="Modern Components">
+                    <img src="images/card2.png" class="card-img-top" style="height: 250px; object-fit: cover;"
+                        alt="Modern Components">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Modern Components</h5>
                         <p class="card-text">
@@ -92,8 +92,8 @@
             <!-- Card 3 -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <img src="images/card3.png" class="card-img-top"
-                        style="height: 250px; object-fit: cover;" alt="Easy Customisation">
+                    <img src="images/card3.png" class="card-img-top" style="height: 250px; object-fit: cover;"
+                        alt="Easy Customisation">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Easy Customisation</h5>
                         <p class="card-text">
@@ -116,7 +116,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
 
-                <form>
+                <form id="contactForm">
                     <!-- Name -->
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="name" placeholder="Name" required>
@@ -131,21 +131,72 @@
 
                     <!-- Message -->
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" placeholder="Message"
-                            style="height: 150px" required></textarea>
+                        <textarea class="form-control" id="message" placeholder="Message" style="height: 150px"
+                            required></textarea>
                         <label for="message">Message</label>
                     </div>
 
-                    <!-- Submit -->
-                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                    <!-- Submit Button -->
+                    <button type="button" class="btn btn-success w-100" onclick="showModal()">
+                        Submit
+                    </button>
                 </form>
 
             </div>
         </div>
     </section>
 
+    <!-- ===================== -->
+    <!-- Task 4: Bootstrap Modal -->
+    <!-- ===================== -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Submitted Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p><strong>Name:</strong> <span id="modalName"></span></p>
+                    <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                    <p><strong>Message:</strong> <span id="modalMessage"></span></p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modal Script -->
+    <script>
+        function showModal() {
+            const form = document.getElementById("contactForm");
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            document.getElementById("modalName").textContent = name;
+            document.getElementById("modalEmail").textContent = email;
+            document.getElementById("modalMessage").textContent = message;
+
+            const contactModal = new bootstrap.Modal(document.getElementById("contactModal"));
+            contactModal.show();
+        }
+    </script>
 
 </body>
 
