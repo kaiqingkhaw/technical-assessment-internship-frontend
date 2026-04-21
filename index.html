@@ -12,43 +12,52 @@
 
 <body>
 
+    <!-- ========================= -->
     <!-- Task 1: Responsive Navbar -->
+    <!-- ========================= -->
+    <!-- This navbar uses Bootstrap classes and becomes a hamburger menu on smaller screens -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+
+            <!-- Website Brand -->
             <a class="navbar-brand" href="#home">Frontend Assessment</a>
 
+            <!-- Hamburger Button (visible on small screens) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Navigation Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Simple Home Section -->
     <div class="container mt-5" id="home">
         <h1 class="text-center">Welcome to the Frontend Assessment</h1>
         <p class="text-center text-muted">A responsive Bootstrap page for the internship assessment.</p>
-
-        <!-- TODO: Task 2 -->
-        <!-- TODO: Task 3 -->
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS (required for navbar toggle) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
