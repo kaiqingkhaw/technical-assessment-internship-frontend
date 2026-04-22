@@ -1,0 +1,111 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold display-5">Angular SPA Demo</h1>
+    <p class="text-muted mb-0">
+      This page demonstrates a reactive form, input validation, business logic, and an HTTP call using Angular.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body p-4">
+          <h2 class="h3 fw-bold mb-4">Contact Form</h2>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <!-- NAME -->
+            <div class="mb-3">
+              <label for="name" class="form-label fw-semibold">Name</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter your name"
+              >
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.name.errors?.['required']">
+                Name is required.
+              </div>
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.name.errors?.['minlength']">
+                Name must be at least 3 characters.
+              </div>
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.name.errors?.['pattern']">
+                Name must contain only letters.
+              </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">Email</label>
+              <input
+                id="email"
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter your email"
+              >
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.email.errors?.['required']">
+                Email is required.
+              </div>
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.email.errors?.['email']">
+                Please enter a valid email address.
+              </div>
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="mb-3">
+              <label for="message" class="form-label fw-semibold">Message</label>
+              <textarea
+                id="message"
+                rows="5"
+                class="form-control"
+                formControlName="message"
+                placeholder="Enter your message"
+                (input)="onMessageInput()"
+              ></textarea>
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.message.errors?.['required']">
+                Message is required.
+              </div>
+              <div class="text-danger mt-2" *ngIf="submitted && formControls.message.errors?.['minlength']">
+                Message must be at least 10 characters.
+              </div>
+            </div>
+
+            <!-- BUSINESS LOGIC -->
+            <div class="alert alert-secondary mt-3" *ngIf="messageFeedback">
+              <strong>Business Logic Result:</strong> {{ messageFeedback }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 fw-semibold mt-2">
+              Submit Form
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- HTTP CALL -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body p-4">
+          <h2 class="h3 fw-bold mb-4">HTTP Call Example</h2>
+          <p class="text-muted">
+            The list below is loaded dynamically using Angular HttpClient from a local JSON file in the public folder.
+          </p>
+
+          <div *ngIf="samplePosts.length > 0; else loadingBlock" class="list-group">
+            <div class="list-group-item py-3" *ngFor="let post of samplePosts">
+              <h5 class="mb-2 fw-bold">{{ post.title }}</h5>
+              <p class="mb-0 text-muted">{{ post.description }}</p>
+            </div>
+          </div>
+
+          <ng-template #loadingBlock>
+            <p class="text-muted mb-0">Loading sample data...</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

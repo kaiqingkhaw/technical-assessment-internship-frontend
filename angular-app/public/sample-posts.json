@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Angular Form Validation",
+    "description": "This example shows how Angular validates required fields and email format."
+  },
+  {
+    "title": "Business Logic Example",
+    "description": "This example evaluates the message length and displays feedback to the user."
+  },
+  {
+    "title": "HTTP Call Example",
+    "description": "This data is loaded with Angular HttpClient from a local JSON file."
+  }
+]
